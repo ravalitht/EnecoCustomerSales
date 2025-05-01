@@ -1,7 +1,10 @@
 import { test, expect, Page } from '@playwright/test';
 
 
-export class enecoHomePage{
+export class EnecoHomePage{
+    static landToEnecoHome() {
+        throw new Error('Method not implemented.');
+    }
     page: any;
 
 
@@ -15,6 +18,7 @@ export class enecoHomePage{
     await this.page.goto('https://www.eneco.nl/');
     await expect(this.page.getByRole('heading', { name: 'Mogen wij cookies plaatsen?' })).toBeVisible();
     await expect(this.page.getByLabel('Mogen wij cookies plaatsen?')).toContainText('Accepteren');
+    await this.page.getByRole('button', { name: 'Accepteren' }).click();
 
 
 

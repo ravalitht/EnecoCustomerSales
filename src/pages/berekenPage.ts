@@ -1,7 +1,7 @@
 import { test, expect, Page } from '@playwright/test';
 
 
-export class enecoHomePage{
+export class BerekenPage{
     page: any;
 
 
@@ -76,6 +76,14 @@ public async selectEnterConsumption(){
 public async doyouhaveSmartmeterQuestionYes(){
 
     await this.page.getByRole('radio', { name: 'Ja, ik heb een slimme meter' }).click();
+    await this.page.getByRole('button', { name: 'Volgende' }).click();
+
+}
+
+
+public async doyouhaveSmartmeterQuestionNo(){
+
+    await this.page.getByRole('radio', { name: 'Nee, ik heb geen slimme meter' }).click();
     await this.page.getByRole('button', { name: 'Volgende' }).click();
 
 }

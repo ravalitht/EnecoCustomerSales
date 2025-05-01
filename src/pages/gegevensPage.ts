@@ -1,7 +1,7 @@
 import { test, expect, Page } from '@playwright/test';
 
 
-export class enecoHomePage{
+export class GegevensPage{
     page: any;
 
 
@@ -79,5 +79,13 @@ public async fillContactInformation(){
 }
 
 
+public async verifyCustomerProvidedDetailsOnControlPage(){
 
+    await this.page.getByRole('textbox', { name: 'Rekeningnummer (IBAN)' }).fill('NL63 INGB 5198 4917 56');
+    await expect(this.page.locator('form')).toContainText('BedenktijdJe hebt recht op 14 dagen bedenktijd.');
+    await expect(this.page.locator('form')).toContainText('Wanneer je klikt op onderstaande button, ga je akkoord met de voorwaarden en tarieven en ga je een betalingsverplichting met Eneco aan. Tevens machtig je Eneco, totdat je deze weer intrekt, tot automatische incasso, vanaf de door jou opgegeven rekening, van de verschuldigde maand- en jaarbedragen voor energie en daarbij behorende producten en diensten.');
+  
+    await expect(this.page.locator('form')).toContainText('Bezwaar makenJe hebt het recht om bezwaar te maken tegen verwerkingen van je persoonsgegevens, waarvoor we een gerechtvaardigd belang hebben. Meer informatie over hoe dit recht van bezwaar werkt en hoe we met je persoonsgegevens omgaan vind je in ons privacystatement.');
+    await expect(this.page.locator('form')).toContainText('Slimme meter allocatieBij dit contract hoort dat we je verbruik en de actuele tarieven aan je kunnen laten zien. En dat we je hierover advies en inzicht kunnen geven. We vragen daarom de kwartierwaarden stroom en/of de dagwaarden gas van je slimme meter(s) op bij je netbeheerder. Dit is dus noodzakelijk voor de uitvoering van de overeenkomst. Je netbeheerder gebruikt de uurstanden uit je slimme stroommeter volgens individuele Slimme Meter Allocatie. Op deze manier kan je netbeheerder precies je verbruik berekenen en controleren of wij de inkoop van stroom hebben afgestemd op het gebruik voor je aansluiting.');
+  }
 }

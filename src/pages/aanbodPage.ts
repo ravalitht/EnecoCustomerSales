@@ -1,7 +1,7 @@
 import { test, expect, Page } from '@playwright/test';
 
 
-export class enecoHomePage{
+export class AanbodPage{
     page: any;
 
 
