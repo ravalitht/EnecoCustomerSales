@@ -1,0 +1,22 @@
+{
+  "name": "enecocustomersales",
+  "version": "1.0.0",
+  "description": "Repo for Eneco assignment , this repository has all tests related sales flow Eneco B2C Customers",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravalitht/EnecoCustomerSales.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ravalitht/EnecoCustomerSales/issues"
+  },
+  "homepage": "https://github.com/ravalitht/EnecoCustomerSales#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.3"
+  }
+}
