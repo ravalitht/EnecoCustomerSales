@@ -4,6 +4,7 @@ import {BerekenPage} from '../pages/berekenPage';
 //import {controlepage} from '../pages/controlePage';
 import { EnecoHomePage } from '../pages/enecoHomePage';
 import {GegevensPage} from '../pages/gegevensPage'
+import { Applicationurls } from './applicationURLS';
 
 
 
@@ -15,6 +16,7 @@ export class PageManager{
     private readonly berekenpageobj:BerekenPage;
     private readonly enecohomepageobj:EnecoHomePage;
     private readonly gegevenspageobj:GegevensPage;
+    private readonly appurlObj:Applicationurls;
 
     constructor(page:Page){
 
@@ -23,6 +25,7 @@ export class PageManager{
         this.berekenpageobj=new BerekenPage(this.page);
         this.enecohomepageobj=new EnecoHomePage(this.page);
         this.gegevenspageobj=new GegevensPage(this.page);
+        this.appurlObj=new Applicationurls();
 
     }
 
@@ -45,5 +48,9 @@ export class PageManager{
 
     public getgevenspageobj(){
         return this.gegevenspageobj;
+    }
+
+    public getappURLObj(){
+        return this.appurlObj;
     }
 }

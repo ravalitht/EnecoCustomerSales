@@ -1,10 +1,11 @@
 import { test, expect } from '../utilities/hooks';
+import { Applicationurls } from '../utilities/applicationURLS';
 
 
 test('Sales Flow EG Dynamic Contract', async ({ pageManager }) => {
 
    console.log("Testing Sales flow of Eletricity and Gas for Dynamic contract")
-   await pageManager.getenecohomepageobj().landToEnecoHome();
+   await pageManager.getenecohomepageobj().landToEnecoHome(Applicationurls.getEnecohomeURL());
    await pageManager.getenecohomepageobj().fillRequestEnergyDetails();
 
    await pageManager.getberekenpageObj().selectTyepOfEnergySupplyEG();
@@ -29,7 +30,7 @@ test('Sales Flow EG Dynamic Contract', async ({ pageManager }) => {
 test('Sales Flow E Only Vast Contract', async ({ pageManager }) => {
 
    console.log("Testing Sales flow of Eletricity only for Vast contracts")
-   await pageManager.getenecohomepageobj().landToEnecoHome();
+   await pageManager.getenecohomepageobj().landToEnecoHome(Applicationurls.getEnecohomeURL());
    await pageManager.getenecohomepageobj().fillRequestEnergyDetails();
 
    await pageManager.getberekenpageObj().selectTyepOfEnergySupplyEOnly();
@@ -53,7 +54,7 @@ test('Sales Flow E Only Vast Contract', async ({ pageManager }) => {
 test('Sales Flow G Only Vast 3 Jaar Contract', async ({ pageManager }) => {
 
    console.log("Testing Sales flow of Gas only for Vast 3 Jaar contracts")
-   await pageManager.getenecohomepageobj().landToEnecoHome();
+   await pageManager.getenecohomepageobj().landToEnecoHome(Applicationurls.getEnecohomeURL());
    await pageManager.getenecohomepageobj().fillRequestEnergyDetails();
 
    await pageManager.getberekenpageObj().selectTyepOfEnergySupplyGOnly();

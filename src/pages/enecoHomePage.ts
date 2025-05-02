@@ -1,6 +1,6 @@
 import { test, expect, Page } from '@playwright/test';
-import {ENECO_HOME_URL} from '../utilities/applicationURLS'
 import {postcodes} from '../testData/postcodes'
+import { Applicationurls } from '../utilities/applicationURLS';
 
 
 export class EnecoHomePage{
@@ -16,10 +16,10 @@ export class EnecoHomePage{
         this.page=page;
     }
 
-  async landToEnecoHome(){
+  async landToEnecoHome(appUrl:string){
 
     console.log("Landing to Eneco Home")
-    await this.page.goto(ENECO_HOME_URL);
+    await this.page.goto(appUrl);
     await expect(this.page.getByRole('heading', { name: 'Mogen wij cookies plaatsen?' })).toBeVisible();
     await expect(this.page.getByLabel('Mogen wij cookies plaatsen?')).toContainText('Accepteren');
     await this.page.getByRole('button', { name: 'Accepteren' }).click();

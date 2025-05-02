@@ -1,6 +1,6 @@
-// tests/support/hooks.ts
 import { test as baseTest, Browser, BrowserContext, Page } from '@playwright/test';
 import { PageManager } from '../utilities/pageManager';
+import {BROWSER} from '../utilities/envConfig'
 
 type MyFixtures = {
   pageManager: PageManager;
@@ -23,8 +23,33 @@ export const expect = baseTest.expect;
 // ----- HOOKS -----
 
 test.beforeAll(async ({ playwright }) => {
-  console.log('Launching browser...');
-  browser = await playwright.chromium.launch({ headless: false,args: ['--start-maximized'], });
+
+  const browserType = BROWSER || 'chromium'; // default to chromium
+  console.log(`Launching ${browserType} browser...`);
+
+  switch (browserType) {
+    case 'chromium':
+      browser = await playwright.chromium.launch({
+        headless: false,
+        args: ['--start-maximized'],
+      });
+      break;
+
+    case 'firefox':
+      browser = await playwright.firefox.launch({
+        headless: false,
+      });
+      break;
+
+    case 'webkit':
+      browser = await playwright.webkit.launch({
+        headless: false,
+      });
+      break;
+
+    default:
+      throw new Error(`Unsupported browser: ${browserType}`);
+  }
 });
 
 test.beforeEach(async () => {
