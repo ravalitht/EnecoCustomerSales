@@ -52,21 +52,22 @@ Make sure the VS Code terminal is open in your project directory.
 
 ## To Run a Specific Test File
 
-Windows:
+### Windows:
 npx playwright test tests/example.spec.ts
 
-macOS:
+### macOS:
 npx playwright test tests/example.spec.ts
 
-To Run all tests on Windows:
+### To Run all tests on Windows:
 npx playwright test
 
-To Run all tests on macOS:
+### To Run all tests on macOS:
 npx playwright test
 
 
 ## Project Structure
-ENECOCUSTOMERSALES/
+
+ENECOCUSTOMERSALES
 ├── .github/
 │ └── workflows/ # GitHub Actions workflows
 ├── node_modules/ # Project dependencies
@@ -97,5 +98,5 @@ ENECOCUSTOMERSALES/
 
 
 ## Report
-After running tests, view Playwright's HTML report with
+### After running tests, view Playwright's HTML report with:
 npx playwright show-report
