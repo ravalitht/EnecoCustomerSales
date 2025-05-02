@@ -11,10 +11,10 @@ This repository contains testing framework built using **Playwright with TypeScr
 
 -  **Test-Driven Development (TDD)**
 -  **Page Object Model (POM)**
--  **Dynamic test data generation**
+-  **Dynamic test data**
 -  **Playwright’s built-in HTML reports**
 -  **GitHub for version control**
--  **Visual Studio Code (VS Code) as the IDE**
+-  **Visual Studio Code (VS Code) as the IDE** (recommended)
 
 ---
 
@@ -35,23 +35,20 @@ Make sure you have the following installed on your system:
 ### Step 1: Clone the Repository
 
 git clone https://github.com/ravalitht/EnecoCustomerSales
-cd your-playwright-project
 
-### Step 2: Install Dependencies
+### Step 2: Change directory
 
-npm install
+cd your-project
 
-### Step 3: Install Playwright
+### Step 3: Install Playwright and other dependencies
 
-npx playwright install
-
-This installs all necessary browser binaries (Chromium, Firefox, and WebKit)
+npx install
 
 ### Step 4: Run Tests in Visual Studio Code
 
 Make sure the VS Code terminal is open in your project directory.
 
-## To Run a Specific Test File
+## To Run a Specific Test File, Run following on the Terminal
 
 ### Windows:
 npx playwright test tests/example.spec.ts
