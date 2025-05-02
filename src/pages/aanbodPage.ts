@@ -52,6 +52,19 @@ public async validateyourOfferSectionEOnly(){
 }
 
 
+
+
+
+
+public async selectCo2QuestionNo(){
+
+    await expect(this.page.getByRole('heading', { name: 'Help je mee CO2 te verminderen?' })).toBeVisible();
+    await this.page.getByRole('button', { name: 'Naar je aanbod' }).click();
+  
+
+}
+
+
 public async validateyourOfferSectionGOnly(){
 
     await expect(this.page.getByRole('heading', { name: 'Je aanbod' })).toBeVisible();
@@ -62,6 +75,15 @@ public async validateyourOfferSectionGOnly(){
 
 }
 
+
+
+public async selectVastGasContractthreeJaar(){
+
+    await expect(this.page.getByRole('heading', { name: 'Kies je type energiecontract' })).toBeVisible();
+    await this.page.getByRole('radio', { name: 'Vast 1 jaar gas' }).click();
+    await this.page.getByRole('button', { name: 'Volgende' }).click();
+
+}
 
 
 }

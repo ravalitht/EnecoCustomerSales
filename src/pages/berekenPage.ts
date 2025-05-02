@@ -57,7 +57,7 @@ public async selectHelpmeEstimateQuestion(){
 
 
 
-public async selectEnterConsumption(){
+public async selectEnterConsumptionforEG(){
 
     await this.page.getByRole('radio', { name: 'Ja, ik vul mijn verbruik zelf' }).click();
     await this.page.getByRole('button', { name: 'Volgende' }).click();
@@ -65,10 +65,37 @@ public async selectEnterConsumption(){
     await this.page.getByRole('textbox', { name: 'Stroom normaal verbruik per' }).fill('2000');
    
     await this.page.getByRole('textbox', { name: 'Stroom dal verbruik per jaar' }).fill('2000');
+    await this.page.getByRole('button', { name: 'Volgende' }).click();
   
     await this.page.getByRole('textbox', { name: 'Gasverbruik per jaar in' }).fill('800');
     await this.page.getByRole('button', { name: 'Volgende' }).click();
 
+
+}
+
+
+
+public async selectEnterConsumptionforEOnly(){
+
+    await this.page.getByRole('radio', { name: 'Ja, ik vul mijn verbruik zelf' }).click();
+    await this.page.getByRole('button', { name: 'Volgende' }).click();
+  
+    await this.page.getByRole('textbox', { name: 'Stroom normaal verbruik per' }).fill('2000');
+   
+    await this.page.getByRole('textbox', { name: 'Stroom dal verbruik per jaar' }).fill('2000');
+    await this.page.getByRole('button', { name: 'Volgende' }).click();
+
+}
+
+
+
+
+public async selectEnterConsumptionforGOnly(){
+
+    await this.page.getByRole('radio', { name: 'Ja, ik vul mijn verbruik zelf' }).click();
+    await this.page.getByRole('button', { name: 'Volgende' }).click();
+    await this.page.getByRole('textbox', { name: 'Gasverbruik per jaar in' }).fill('800');
+    await this.page.getByRole('button', { name: 'Volgende' }).click();
 
 }
 

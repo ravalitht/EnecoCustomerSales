@@ -34,12 +34,12 @@ test.beforeEach(async () => {
 });
 
 test.afterEach(async () => {
-  console.log('🧹 [afterEach] Closing page and context...');
-  await page.close();
-  await context.close();
+  // console.log('🧹 [afterEach] Closing page and context...');
+  // await page.close();
+  // await context.close();
 });
 
 test.afterAll(async () => {
-  console.log('🛑 [afterAll] Closing browser...');
-  await browser.close();
+  // console.log('🛑 [afterAll] Closing browser...');
+  // await browser.close();
 });
