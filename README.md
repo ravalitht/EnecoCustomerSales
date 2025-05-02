@@ -2,6 +2,7 @@
 
 # Playwright TypeScript Testing Framework
 
+This project is built as part of Interview process of Eneco Test Automation Engineer role.
 This repository contains testing framework built using **Playwright with TypeScript**. The project adheres to **Test-Driven Development (TDD)** principles and uses the **Page Object Model (POM)** design pattern to ensure test scalability and maintainability. Dynamic test data generation and integrated Playwright reporting are included by default.
 
 ---
@@ -97,7 +98,7 @@ ENECOCUSTOMERSALES/
 ├── playwright.config.ts # Playwright configuration file
 └── README.md
 
-
+```
 ## Report
 ### After running tests, view Playwright's HTML report with:
 npx playwright show-report
