@@ -3,6 +3,7 @@ import { test, expect } from '../utilities/hooks';
 
 test('Sales Flow EG Dynamic Contract', async ({ pageManager }) => {
 
+   console.log("Testing Sales flow of Eletricity and Gas for Dynamic contract")
    await pageManager.getenecohomepageobj().landToEnecoHome();
    await pageManager.getenecohomepageobj().fillRequestEnergyDetails();
 
@@ -27,6 +28,7 @@ test('Sales Flow EG Dynamic Contract', async ({ pageManager }) => {
 
 test('Sales Flow E Only Vast Contract', async ({ pageManager }) => {
 
+   console.log("Testing Sales flow of Eletricity only for Vast contracts")
    await pageManager.getenecohomepageobj().landToEnecoHome();
    await pageManager.getenecohomepageobj().fillRequestEnergyDetails();
 
@@ -50,6 +52,7 @@ test('Sales Flow E Only Vast Contract', async ({ pageManager }) => {
 
 test('Sales Flow G Only Vast 3 Jaar Contract', async ({ pageManager }) => {
 
+   console.log("Testing Sales flow of Gas only for Vast 3 Jaar contracts")
    await pageManager.getenecohomepageobj().landToEnecoHome();
    await pageManager.getenecohomepageobj().fillRequestEnergyDetails();
 

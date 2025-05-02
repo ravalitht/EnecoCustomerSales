@@ -1,6 +1,6 @@
 export const postcodes=[
     {
-        id:1,postcode:'9713RD',housenumber:'63',hoouseNumberAddition:''
+        postcode:'9713RD',housenumber:'63',houseNumberAddition:'',fullAddress:'Irislaan 63, 9713RD GRONINGEN'
 
     }
 ]

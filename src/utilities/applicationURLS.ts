@@ -1,0 +1,1 @@
+export const ENECO_HOME_URL = 'https://www.eneco.nl/';

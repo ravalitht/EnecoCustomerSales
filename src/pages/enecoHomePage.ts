@@ -1,7 +1,10 @@
 import { test, expect, Page } from '@playwright/test';
+import {ENECO_HOME_URL} from '../utilities/applicationURLS'
+import {postcodes} from '../testData/postcodes'
 
 
 export class EnecoHomePage{
+    
     static landToEnecoHome() {
         throw new Error('Method not implemented.');
     }
@@ -15,35 +18,22 @@ export class EnecoHomePage{
 
   async landToEnecoHome(){
 
-    await this.page.goto('https://www.eneco.nl/');
+    console.log("Landing to Eneco Home")
+    await this.page.goto(ENECO_HOME_URL);
     await expect(this.page.getByRole('heading', { name: 'Mogen wij cookies plaatsen?' })).toBeVisible();
     await expect(this.page.getByLabel('Mogen wij cookies plaatsen?')).toContainText('Accepteren');
     await this.page.getByRole('button', { name: 'Accepteren' }).click();
 
-
-
  }
+
+
 
  async fillRequestEnergyDetails(){
 
-
-
-
-   
-    await this.page.getByRole('textbox', { name: 'Postcode' }).fill('9713RD');
-  
-    await this.page.getByRole('textbox', { name: 'Huisnr.' }).fill('63');
-    await expect(this.page.getByText('Irislaan 63, 9713RD GRONINGEN')).toBeVisible();
+    console.log("fill customers address")
+    await this.page.getByRole('textbox', { name: 'Postcode' }).fill(postcodes[0].postcode);
+    await this.page.getByRole('textbox', { name: 'Huisnr.' }).fill(postcodes[0].housenumber);
+    await expect(this.page.getByText(postcodes[0].fullAddress)).toBeVisible();
     await this.page.getByRole('button', { name: 'Bereken je maandbedrag' }).click();
-
-
  }
-
-
-
-
-
-
-
-
 }

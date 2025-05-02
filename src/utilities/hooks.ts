@@ -23,23 +23,23 @@ export const expect = baseTest.expect;
 // ----- HOOKS -----
 
 test.beforeAll(async ({ playwright }) => {
-  console.log('🚀 [beforeAll] Launching browser...');
-  browser = await playwright.chromium.launch({ headless: false });
+  console.log('Launching browser...');
+  browser = await playwright.chromium.launch({ headless: false,args: ['--start-maximized'], });
 });
 
 test.beforeEach(async () => {
-  console.log('📄 [beforeEach] Creating context and page...');
+  console.log('Creating context and page...');
   context = await browser.newContext();
   page = await context.newPage();
 });
 
 test.afterEach(async () => {
-  // console.log('🧹 [afterEach] Closing page and context...');
-  // await page.close();
-  // await context.close();
+  console.log('Closing page and context...');
+  await page.close();
+  await context.close();
 });
 
 test.afterAll(async () => {
-  // console.log('🛑 [afterAll] Closing browser...');
-  // await browser.close();
+  console.log('Closing browser...');
+  await browser.close();
 });

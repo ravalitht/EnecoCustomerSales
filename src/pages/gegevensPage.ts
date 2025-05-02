@@ -1,9 +1,8 @@
 import { test, expect, Page } from '@playwright/test';
-
+import {customerData} from '../testData/customerData'
 
 export class GegevensPage{
     page: any;
-
 
     constructor(page:Page){
 
@@ -14,7 +13,7 @@ export class GegevensPage{
 
 public async selectStartDateOfDelivery(){
 
-
+    console.log("Keeping start date as is")
     await expect(this.page.getByRole('heading', { name: 'Vanaf wanneer wil je energie' })).toBeVisible();
     await this.page.getByRole('button', { name: 'Volgende' }).click();
 
@@ -24,6 +23,7 @@ public async selectStartDateOfDelivery(){
 
 public async selectIsResidentialAddressYesQuestion(){
 
+    console.log("Selecting Residential function as Yes")
     await expect(this.page.getByRole('heading', { name: 'Woon of werk je op dit adres?' })).toBeVisible();
     await this.page.getByRole('radio', { name: 'Ja' }).click();
     await this.page.getByRole('button', { name: 'Volgende' }).click();
@@ -34,6 +34,7 @@ public async selectIsResidentialAddressYesQuestion(){
 
 public async selectIsResidentialAddressNoQuestion(){
 
+    console.log("Selecting Residential Function as No")
     await expect(this.page.getByRole('heading', { name: 'Woon of werk je op dit adres?' })).toBeVisible();
     await this.page.getByRole('radio', { name: 'Nee' }).click();
     await this.page.getByRole('button', { name: 'Volgende' }).click();
@@ -44,36 +45,30 @@ public async selectIsResidentialAddressNoQuestion(){
 
 public async fillPersonnelInformation(){
 
+    console.log("filling customers Personnel Information")
     await expect(this.page.getByRole('heading', { name: 'Wat zijn je persoonlijke' })).toBeVisible();
     await this.page.getByRole('radio', { name: 'Mevr.' }).click();
   
-    await this.page.getByRole('textbox', { name: 'Voornaam' }).fill('VOORNAAM');
-  
-    await this.page.getByRole('textbox', { name: 'Voorletters' }).fill('V');
-  
-    await this.page.getByRole('textbox', { name: 'Achternaam' }).fill('ACHETRNAAM');
-    await this.page.getByRole('textbox', { name: 'Dag' }).click();
-    await this.page.getByRole('textbox', { name: 'Dag' }).fill('01');
-  
-    await this.page.getByRole('textbox', { name: 'Maand' }).fill('01');
-  
-    await this.page.getByRole('textbox', { name: 'Jaar' }).fill('1990');
-    await this.page.getByRole('button', { name: 'Volgende' }).click();
+    await this.page.getByRole('textbox', { name: 'Voornaam' }).fill(customerData[0].voornaam);
+    await this.page.getByRole('textbox', { name: 'Voorletters' }).fill(customerData[0].voorletters);
+    await this.page.getByRole('textbox', { name: 'Achternaam' }).fill(customerData[0].Achternaam);
 
+    await this.page.getByRole('textbox', { name: 'Dag' }).fill(customerData[0].DOB[0]);
+    await this.page.getByRole('textbox', { name: 'Maand' }).fill(customerData[0].DOB[1]);
+    await this.page.getByRole('textbox', { name: 'Jaar' }).fill(customerData[0].DOB[2]);
+    await this.page.getByRole('button', { name: 'Volgende' }).click();
 
 }
 
 
-
 public async fillContactInformation(){
 
+    console.log("filling contact information")
     await expect(this.page.getByRole('heading', { name: 'Hoe kunnen we je bereiken?' })).toBeVisible();
 
-    await this.page.getByRole('textbox', { name: 'Telefoonnummer' }).fill('0686576444');
-  
-  
-  
-    await this.page.getByRole('textbox', { name: 'E-mailadres' }).fill('R@gmail.com');
+    await this.page.getByRole('textbox', { name: 'Telefoonnummer' }).fill(customerData[0].Telephonenummer);
+    await this.page.getByRole('textbox', { name: 'E-mailadres' }).fill(customerData[0].E_mailadres);
+
     await this.page.getByRole('button', { name: 'Controleer je bestelling' }).click();
 
 }
@@ -81,7 +76,8 @@ public async fillContactInformation(){
 
 public async verifyCustomerProvidedDetailsOnControlPageDynamicContract(){
 
-    await this.page.getByRole('textbox', { name: 'Rekeningnummer (IBAN)' }).fill('NL63 INGB 5198 4917 56');
+    console.log("Verifying customer provided details on control page")
+    await this.page.getByRole('textbox', { name: 'Rekeningnummer (IBAN)' }).fill(customerData[0].IBAN);
     await expect(this.page.locator('form')).toContainText('BedenktijdJe hebt recht op 14 dagen bedenktijd.');
     await expect(this.page.locator('form')).toContainText('Wanneer je klikt op onderstaande button, ga je akkoord met de voorwaarden en tarieven en ga je een betalingsverplichting met Eneco aan. Tevens machtig je Eneco, totdat je deze weer intrekt, tot automatische incasso, vanaf de door jou opgegeven rekening, van de verschuldigde maand- en jaarbedragen voor energie en daarbij behorende producten en diensten.');
   
@@ -92,6 +88,7 @@ public async verifyCustomerProvidedDetailsOnControlPageDynamicContract(){
 
   public async verifyCustomerProvidedDetailsOnControlPageVastContract(){
 
+    console.log("Verifying customer provided details on control page")
     await this.page.getByRole('textbox', { name: 'Rekeningnummer (IBAN)' }).fill('NL63 INGB 5198 4917 56');
     await expect(this.page.locator('form')).toContainText('BedenktijdJe hebt recht op 14 dagen bedenktijd.');
     await expect(this.page.locator('form')).toContainText('Wanneer je klikt op onderstaande button, ga je akkoord met de voorwaarden en tarieven en ga je een betalingsverplichting met Eneco aan. Tevens machtig je Eneco, totdat je deze weer intrekt, tot automatische incasso, vanaf de door jou opgegeven rekening, van de verschuldigde maand- en jaarbedragen voor energie en daarbij behorende producten en diensten.');

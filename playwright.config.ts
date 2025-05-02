@@ -3,7 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: 'src/tests',
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -12,13 +12,6 @@ export default defineConfig({
   reporter: 'html',
   use: {
     trace: 'on-first-retry',
-
-    headless: false, // optional: see the browser
-    viewport: null,  // launch browser in full screen
-    launchOptions: {
-      args: ['--start-maximized'], // full screen in Chromium-based browsers
-    },
-    
   },
 
   timeout: 300 * 1000, // 5 mins seconds per test
