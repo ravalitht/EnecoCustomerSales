@@ -67,6 +67,7 @@ npx playwright test
 
 ## Project Structure
 
+```
 ENECOCUSTOMERSALES/
 ├── .github/
 │ └── workflows/ # GitHub Actions workflows
