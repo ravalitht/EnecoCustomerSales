@@ -11,7 +11,6 @@ This repository contains testing framework built using **Playwright with TypeScr
 
 -  **Test-Driven Development (TDD)**
 -  **Page Object Model (POM)**
--  **Dynamic test data**
 -  **Playwright’s built-in HTML reports**
 -  **GitHub for version control**
 -  **Visual Studio Code (VS Code) as the IDE** (recommended)
