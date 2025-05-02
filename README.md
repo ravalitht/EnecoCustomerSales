@@ -6,7 +6,7 @@ This repository contains testing framework built using **Playwright with TypeScr
 
 ---
 
-## 🧪 Features
+##  Features
 
 -  **Test-Driven Development (TDD)**
 -  **Page Object Model (POM)**
@@ -33,11 +33,10 @@ Make sure you have the following installed on your system:
 
 ### Step 1: Clone the Repository
 
-```bash
 git clone https://github.com/ravalitht/EnecoCustomerSales
 cd your-playwright-project
 
-### Step 2:  Install Dependencies
+### Step 2: Install Dependencies
 
 npm install
 
@@ -51,7 +50,7 @@ This installs all necessary browser binaries (Chromium, Firefox, and WebKit)
 
 Make sure the VS Code terminal is open in your project directory.
 
-To Run a Specific Test File
+## To Run a Specific Test File
 
 Windows:
 npx playwright test tests/example.spec.ts
@@ -66,7 +65,7 @@ To Run all tests on macOS:
 npx playwright test
 
 
-### Project Structure
+## Project Structure
 ENECOCUSTOMERSALES/
 ├── .github/
 │ └── workflows/ # GitHub Actions workflows
@@ -97,6 +96,6 @@ ENECOCUSTOMERSALES/
 └── README.md
 
 
-### Report
+## Report
 After running tests, view Playwright's HTML report with
 npx playwright show-report
